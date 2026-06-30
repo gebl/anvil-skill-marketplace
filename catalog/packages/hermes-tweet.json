@@ -18,7 +18,7 @@
   },
   "source_model": "upstream-mirror",
   "canonical_harness": "claude",
-  "package_type": "plugin",
+  "package_type": "skill-wrapper",
   "files": {
     "has_skill": true,
     "has_plugin_manifest": true,
@@ -28,11 +28,8 @@
     "has_templates": false
   },
   "risk": {
-    "has_executable_code": true,
-    "dependency_files": [
-      "pyproject.toml",
-      "uv.lock"
-    ],
+    "has_executable_code": false,
+    "dependency_files": [],
     "tool_risk": {
       "declared_tools": [
         "tweet_explore",
@@ -48,21 +45,19 @@
   },
   "compatibility": {
     "assessment_version": "2026-06-30.1",
-    "portability_class": "adaptable",
+    "portability_class": "harness-specific",
     "supported_harnesses": [
-      "claude",
-      "codex",
-      "copilot"
+      "claude"
     ],
     "support_basis": {
       "claude": "native manifest plus Agent Skills payload",
-      "codex": "generated from source skill payload",
-      "copilot": "generated from source skill payload"
+      "codex": "unsupported because Hermes Tweet tool calls require the native Hermes plugin runtime",
+      "copilot": "unsupported because Hermes Tweet tool calls require the native Hermes plugin runtime"
     },
     "status_by_harness": {
       "claude": "native",
-      "codex": "generated",
-      "copilot": "generated"
+      "codex": "unsupported",
+      "copilot": "unsupported"
     },
     "findings": [
       {
@@ -78,13 +73,6 @@
         "severity": "info",
         "path": ".claude-plugin/plugin.json",
         "message": "Has Claude plugin manifest convention"
-      },
-      {
-        "code": "HAS_CODEX_PLUGIN_MANIFEST",
-        "kind": "packaging",
-        "severity": "info",
-        "path": ".codex-plugin/plugin.json",
-        "message": "Upstream also ships a Codex plugin manifest"
       }
     ],
     "adaptation_hints": [
@@ -98,22 +86,12 @@
       "mode": "native"
     },
     "codex": {
-      "enabled": true,
-      "mode": "generated",
-      "marketplace": {
-        "policy": {
-          "installation": "AVAILABLE",
-          "authentication": "ON_INSTALL"
-        },
-        "category": "Productivity"
-      }
+      "enabled": false,
+      "mode": "none"
     },
     "copilot": {
-      "enabled": true,
-      "mode": "generated",
-      "install": {
-        "target_dir": ".github/skills"
-      }
+      "enabled": false,
+      "mode": "none"
     }
   },
   "verification": {

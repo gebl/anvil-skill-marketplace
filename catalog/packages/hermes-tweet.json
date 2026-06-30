@@ -1,0 +1,125 @@
+{
+  "name": "hermes-tweet",
+  "version": "0.1.6",
+  "description": "Native Hermes Agent X/Twitter plugin for Xquik automation with read-first workflows and approval-gated actions.",
+  "authors": [
+    {
+      "name": "Xquik",
+      "url": "https://github.com/Xquik-dev"
+    }
+  ],
+  "upstream": {
+    "repo": "https://github.com/Xquik-dev/hermes-tweet.git",
+    "path": ".",
+    "ref": "master",
+    "type": "plugin",
+    "last_synced_commit": "47b14221f914422d3638cc45f648b4bba0325756",
+    "last_checked": "2026-06-30T00:16:21+00:00"
+  },
+  "source_model": "upstream-mirror",
+  "canonical_harness": "claude",
+  "package_type": "plugin",
+  "files": {
+    "has_skill": true,
+    "has_plugin_manifest": true,
+    "has_hooks": false,
+    "has_commands": false,
+    "has_agents": false,
+    "has_templates": false
+  },
+  "risk": {
+    "has_executable_code": true,
+    "dependency_files": [
+      "pyproject.toml",
+      "uv.lock"
+    ],
+    "tool_risk": {
+      "declared_tools": [
+        "tweet_explore",
+        "tweet_read",
+        "tweet_action"
+      ],
+      "risk_level": "medium",
+      "reasons": [
+        "Networked X/Twitter read tools require XQUIK_API_KEY.",
+        "Account-changing actions are gated by HERMES_TWEET_ENABLE_ACTIONS."
+      ]
+    }
+  },
+  "compatibility": {
+    "assessment_version": "2026-06-30.1",
+    "portability_class": "adaptable",
+    "supported_harnesses": [
+      "claude",
+      "codex",
+      "copilot"
+    ],
+    "support_basis": {
+      "claude": "native manifest plus Agent Skills payload",
+      "codex": "generated from source skill payload",
+      "copilot": "generated from source skill payload"
+    },
+    "status_by_harness": {
+      "claude": "native",
+      "codex": "generated",
+      "copilot": "generated"
+    },
+    "findings": [
+      {
+        "code": "HAS_SKILL_MD",
+        "kind": "packaging",
+        "severity": "info",
+        "path": "skills/hermes-tweet/SKILL.md",
+        "message": "Contains a bundled Agent Skills payload"
+      },
+      {
+        "code": "HAS_CLAUDE_PLUGIN_MANIFEST",
+        "kind": "packaging",
+        "severity": "info",
+        "path": ".claude-plugin/plugin.json",
+        "message": "Has Claude plugin manifest convention"
+      },
+      {
+        "code": "HAS_CODEX_PLUGIN_MANIFEST",
+        "kind": "packaging",
+        "severity": "info",
+        "path": ".codex-plugin/plugin.json",
+        "message": "Upstream also ships a Codex plugin manifest"
+      }
+    ],
+    "adaptation_hints": [
+      "Keep tweet_action behind explicit user approval and HERMES_TWEET_ENABLE_ACTIONS.",
+      "Never request or echo XQUIK_API_KEY values in chat or generated artifacts."
+    ]
+  },
+  "generation": {
+    "claude": {
+      "enabled": true,
+      "mode": "native"
+    },
+    "codex": {
+      "enabled": true,
+      "mode": "generated",
+      "marketplace": {
+        "policy": {
+          "installation": "AVAILABLE",
+          "authentication": "ON_INSTALL"
+        },
+        "category": "Productivity"
+      }
+    },
+    "copilot": {
+      "enabled": true,
+      "mode": "generated",
+      "install": {
+        "target_dir": ".github/skills"
+      }
+    }
+  },
+  "verification": {
+    "reviewed": false,
+    "skills": {
+      "hermes-tweet": false
+    }
+  }
+}

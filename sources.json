@@ -1,5 +1,20 @@
 {
   "plugins": {
+    "hermes-tweet": {
+      "upstream_repo": "https://github.com/Xquik-dev/hermes-tweet.git",
+      "upstream_path": ".",
+      "upstream_ref": "master",
+      "upstream_type": "plugin",
+      "last_synced_commit": "47b14221f914422d3638cc45f648b4bba0325756",
+      "last_checked": "2026-06-30T00:16:21+00:00",
+      "local_modifications": false,
+      "has_executable_code": true,
+      "verification": {
+        "skills": {
+          "hermes-tweet": false
+        }
+      }
+    },
     "ask-questions-if-underspecified": {
       "upstream_repo": "https://github.com/trailofbits/skills.git",
       "upstream_path": "plugins/ask-questions-if-underspecified",

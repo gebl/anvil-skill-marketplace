@@ -86,6 +86,16 @@
       "source": "./plugins-claude/grill-me"
     },
     {
+      "name": "hermes-tweet",
+      "version": "0.1.6",
+      "description": "Native Hermes Agent X/Twitter plugin for Xquik automation with read-first workflows and approval-gated actions.",
+      "author": {
+        "name": "Xquik",
+        "url": "https://github.com/Xquik-dev"
+      },
+      "source": "./plugins-claude/hermes-tweet"
+    },
+    {
       "name": "insecure-defaults",
       "version": "1.0.0",
       "description": "Detects insecure default configurations including hardcoded credentials, fallback secrets, weak authentication defaults, and dangerous values in production",
